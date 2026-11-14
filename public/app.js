@@ -465,19 +465,19 @@ function updatePageMeta(){
     if (titleEl) titleEl.textContent = activeCat;
     if (categoryIntroEl){ categoryIntroEl.textContent = intro; categoryIntroEl.hidden = !intro; }
     if (md) md.setAttribute("content", intro + " Thiết bị Minh Quân tư vấn và báo giá qua điện thoại tại Hà Nội và TP.HCM.");
-    const canon = document.getElementById("canonicalLink"); if (canon) canon.setAttribute("href", "https://thietbiminhquan.com/" + slugify(activeCat));
+    const canon = document.getElementById("canonicalLink"); if (canon) canon.setAttribute("href", "https://www.dienmayminhquan.net/" + slugify(activeCat));
     const ogT = document.querySelector('meta[property="og:title"]'); if (ogT) ogT.setAttribute("content", activeCat + " | Thiết bị Minh Quân");
     const ogD = document.querySelector('meta[property="og:description"]'); if (ogD) ogD.setAttribute("content", intro + " Thiết bị Minh Quân tư vấn và báo giá qua điện thoại tại Hà Nội và TP.HCM.");
-    const ogU = document.querySelector('meta[property="og:url"]'); if (ogU) ogU.setAttribute("content", "https://thietbiminhquan.com/" + slugify(activeCat));
+    const ogU = document.querySelector('meta[property="og:url"]'); if (ogU) ogU.setAttribute("content", "https://www.dienmayminhquan.net/" + slugify(activeCat));
   } else {
     document.title = DEFAULT_TITLE;
     if (titleEl) titleEl.textContent = "Danh mục & sản phẩm";
     if (categoryIntroEl){ categoryIntroEl.textContent = qText ? "" : ALL_INTRO; categoryIntroEl.hidden = !!qText; }
     if (md) md.setAttribute("content", DEFAULT_DESC);
-    const canon2 = document.getElementById("canonicalLink"); if (canon2) canon2.setAttribute("href", "https://thietbiminhquan.com/");
+    const canon2 = document.getElementById("canonicalLink"); if (canon2) canon2.setAttribute("href", "https://www.dienmayminhquan.net/");
     const ogT2 = document.querySelector('meta[property="og:title"]'); if (ogT2) ogT2.setAttribute("content", DEFAULT_TITLE);
     const ogD2 = document.querySelector('meta[property="og:description"]'); if (ogD2) ogD2.setAttribute("content", DEFAULT_DESC);
-    const ogU2 = document.querySelector('meta[property="og:url"]'); if (ogU2) ogU2.setAttribute("content", "https://thietbiminhquan.com/");
+    const ogU2 = document.querySelector('meta[property="og:url"]'); if (ogU2) ogU2.setAttribute("content", "https://www.dienmayminhquan.net/");
   }
 }
 
@@ -501,7 +501,7 @@ function filtered(){
 }
 function cardHtml(p, i){
   return `<article class="card">
-    <button class="card-img" type="button" data-open="${i}" aria-label="Xem chi tiết ${escHtml(p.name)}"><img src="${p.img}" alt="${escHtml(p.name)}" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-missing');this.parentElement.setAttribute('data-missing','Ảnh chưa tải được')"></button>
+    <button class="card-img" type="button" data-open="${i}" aria-label="Xem chi tiết ${escHtml(p.name)}"><img src="${p.img}" alt="${escHtml(p.name)}" loading="lazy" decoding="async" onerror="this.style.display='none';this.parentElement.classList.add('img-missing');this.parentElement.setAttribute('data-missing','Ảnh chưa tải được')"></button>
     <div class="card-body">
       <p class="card-cat">${p.cat}</p>
       <h3><button type="button" data-open="${i}">${escHtml(p.name)}</button></h3>
@@ -594,8 +594,21 @@ document.getElementById("drawerBackdrop").addEventListener("click", closeDrawer)
 document.getElementById("clearFilter").addEventListener("click", () => { activeCat = null; setCatUrl(); searchInput.value = ""; priceFilter.value = "all"; renderSidebar(); renderCatalog(); });
 window.addEventListener("popstate", () => { activeCat = catFromPath(); renderSidebar(); renderCatalog(); });
 document.getElementById("modalAdd").addEventListener("click", () => { if (modalProduct) { addToCart(modalProduct); document.getElementById("productModal").close(); } });
-document.getElementById("productModal").addEventListener("click", (e) => { if (e.target === document.getElementById("productModal")) document.getElementById("productModal").close(); });
-searchInput.addEventListener("input", renderCatalog);
+// closedby="any" handles light-dismiss where supported (Chrome 134+, Firefox 141+).
+// Fallback for browsers without it (e.g. Safari): test pointer position, not
+// event.target — the <dialog> is also the target for its own padding/gaps.
+if (!("closedBy" in HTMLDialogElement.prototype)) {
+  const productModal = document.getElementById("productModal");
+  const outside = (e) => {
+    const r = productModal.getBoundingClientRect();
+    return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+  };
+  let pressedOutside = false;
+  productModal.addEventListener("pointerdown", (e) => { pressedOutside = outside(e); });
+  productModal.addEventListener("pointerup", (e) => { if (pressedOutside && outside(e)) productModal.close(); });
+}
+let searchTimer = null;
+searchInput.addEventListener("input", () => { clearTimeout(searchTimer); searchTimer = setTimeout(renderCatalog, 150); });
 priceFilter.addEventListener("change", renderCatalog);
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
 activeCat = catFromPath();

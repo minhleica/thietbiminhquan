@@ -54,7 +54,7 @@ a{color:inherit}
 .side-sub{display:grid;gap:2px;padding:6px 0 2px 12px;border-left:2px solid var(--border);margin-left:10px}
 .side-sub-btn{font-size:13px;padding:8px 10px}
 .catalog-col{min-width:0}
-.floor{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px}
+.floor{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px;content-visibility:auto;contain-intrinsic-size:auto 600px}
 .floor-head{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:16px}
 .floor-head h2{margin:0;font-size:18px;display:flex;align-items:center;gap:10px}
 .floor-no{background:var(--navy);color:#fff;font-size:13px;border-radius:6px;padding:2px 8px}
@@ -136,6 +136,9 @@ a{color:inherit}
 .modal-cat{color:var(--muted);font-size:13px;font-weight:700;text-transform:uppercase}
 .modal-price{font-size:24px;font-weight:800;color:var(--red)}
 #modalDesc{white-space:pre-line}
+ dialog:modal{overscroll-behavior:contain}
+ dialog::backdrop{overflow:hidden;overscroll-behavior:contain}
+ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #0068ff;outline-offset:2px}
 .modal-price.contact{color:var(--muted);font-size:18px}
 .specs{margin:16px 0;display:grid;gap:8px}
 .specs div{display:grid;grid-template-columns:140px 1fr;gap:12px}

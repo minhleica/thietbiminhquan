@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thietbiminhquan.com/sitemap.xml
+Sitemap: https://www.dienmayminhquan.net/sitemap.xml
