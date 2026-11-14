@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261114b">
+<link rel="stylesheet" href="styles.css?v=20261114c">
 </head>
 <body>
 <a class="skip-link" href="#catalog">Bỏ qua tới sản phẩm</a>
@@ -190,6 +190,10 @@
 </dialog>
 
 <script src="app.js?v=20261114a"></script>
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{};
+Tawk_API.customStyle={visibility:{desktop:{position:'br',xOffset:20,yOffset:104}}};
+</script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -203,5 +207,22 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<script>
+(function(){
+  if(!window.matchMedia('(min-width: 901px)').matches) return;
+  function moveTawk(){
+    var f=document.querySelector('iframe[src*="tawk.to"]');
+    if(!f) return false;
+    var el=f;
+    while(el && el!==document.body){
+      if(getComputedStyle(el).position==='fixed'){ el.style.bottom='104px'; return true; }
+      el=el.parentElement;
+    }
+    return false;
+  }
+  var tries=0;
+  var timer=setInterval(function(){ if(moveTawk() || ++tries>40) clearInterval(timer); },500);
+})();
+</script>
 </body>
 </html>
