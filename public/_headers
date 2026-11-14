@@ -1,4 +1,4 @@
 /app.js
-  Cache-Control: no-store
+  Cache-Control: public, max-age=300, must-revalidate
 /styles.css
-  Cache-Control: no-store
+  Cache-Control: public, max-age=300, must-revalidate
