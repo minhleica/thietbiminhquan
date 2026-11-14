@@ -129,6 +129,7 @@ a{color:inherit}
 .modal-img{width:100%;max-height:320px;object-fit:contain;background:#f8fafc;border:1px solid var(--border);border-radius:8px}
 .modal-cat{color:var(--muted);font-size:13px;font-weight:700;text-transform:uppercase}
 .modal-price{font-size:24px;font-weight:800;color:var(--red)}
+#modalDesc{white-space:pre-line}
 .modal-price.contact{color:var(--muted);font-size:18px}
 .specs{margin:16px 0;display:grid;gap:8px}
 .specs div{display:grid;grid-template-columns:140px 1fr;gap:12px}
