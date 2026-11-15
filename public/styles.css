@@ -136,6 +136,9 @@ a{color:inherit}
 .modal-cat{color:var(--muted);font-size:13px;font-weight:700;text-transform:uppercase}
 .modal-price{font-size:24px;font-weight:800;color:var(--red)}
 #modalDesc{white-space:pre-line}
+.modal-gallery-title{font-weight:800;margin:20px 0 0}
+.modal-gallery{display:grid;gap:12px;margin-top:12px}
+.modal-gallery img{width:100%;height:auto;border-radius:8px;display:block;background:#f8fafc}
  dialog:modal{overscroll-behavior:contain}
  dialog::backdrop{overflow:hidden;overscroll-behavior:contain}
  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #0068ff;outline-offset:2px}
