@@ -508,7 +508,7 @@ function cardHtml(p, i){
       ${p.price ? `<p class="card-price">${fmt(p.price)}</p>` : ""}
       <div class="card-actions">
         <button class="btn btn-ghost" type="button" data-add="${i}">+ Quan tâm</button>
-        <a class="btn btn-primary" href="tel:0932077059">${p.price ? "Gọi báo giá" : "Gọi Báo Giá Tốt"}</a>
+        <a class="btn btn-primary" href="tel:0932077059">Gọi Báo Giá Tốt</a>
       </div>
     </div>
   </article>`;
@@ -583,7 +583,6 @@ function openModal(p){
   document.getElementById("modalCat2").textContent = p.cat;
   document.getElementById("modalName").textContent = p.name;
   const priceEl = document.getElementById("modalPrice"); priceEl.hidden = !p.price; priceEl.textContent = fmt(p.price); priceEl.className = "modal-price";
-  document.getElementById("modalQuoteBtn").textContent = p.price ? "Gọi báo giá" : "Gọi Báo Giá Tốt";
   document.getElementById("modalDesc").textContent = p.desc;
   const gallery = document.getElementById("modalGallery");
   const galleryTitle = document.getElementById("modalGalleryTitle");
