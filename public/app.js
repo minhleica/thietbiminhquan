@@ -428,7 +428,7 @@ const CAT_INTRO = {
   "MÁY THỦY BÌNH": "Máy thủy bình dùng để đo cao độ, truyền cao độ và san nền trong thi công xây dựng, giao thông và khảo sát công trình.",
   "MÁY ĐỘT THỦY LỰC": "Máy đột thủy lực dùng để đột lỗ trên thép tấm, thép góc và thanh cái trong gia công cơ khí và thi công điện.",
   "BƠM THỬ ÁP ASADA - NHẬT": "Bơm thử áp Asada dùng để kiểm tra áp suất đường ống và hệ thống thủy lực trước khi đưa vào sử dụng.",
-  "MÁY UỐN ỐNG THỦY LỰC": "Máy uốn ống thủy lực dùng để uốn cong ống thép theo góc thi công, phục vụ lắp đặt hệ thống ống và kết cấu thép.",
+  "MÁY UỐN ỐNG THỦY LỰC": "Máy uốn ống thủy lực bằng tay uốn ống thép từ 10mm đến 101,6mm (tới 4 inch) với lực uốn 13–23 tấn, góc uốn tới 90°, kèm đủ bộ khuôn 1/2\"-4\" để thi công ngay tại công trường. Máy uốn được ống thép, ống inox và ống đồng, vết uốn tròn đều, có cả dòng dùng điện cho xưởng cơ khí cần uốn nhanh và ổn định. Dùng cho lắp đặt hệ thống ống, điện nước, điện lạnh và kết cấu thép tại xưởng cơ khí và công trường.",
   "MÁY KHOAN TỪ - MAGTRON": "Máy khoan từ Magtron dùng để khoan lỗ trên thép tấm và kết cấu thép tại công trường, nhờ đế từ giữ máy chắc chắn khi khoan.",
   "KIM CẮT CÁP": "Kim cắt cáp dùng để cắt cáp điện, cáp thép và dây cáp trong thi công điện và lắp đặt công trình.",
   "THIẾT BỊ ĐO BẰNG LAZER": "Thiết bị đo bằng lazer dùng để đo khoảng cách, diện tích và cao độ nhanh trong khảo sát và thi công.",
